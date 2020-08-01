@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import Proptypes from "prop-types";
-import { Ionicons } from "@expo/vector-icons";
 import Meta from "./Meta";
+import Proptypes from "prop-types";
+import DailyWeather from "./DailyWeather";
 
-const Weather = ({ name, current, current: { weather, temp } }) => {
+const Weather = ({ name, current, current: { weather, temp }, daily }) => {
   const condition = weather[0].main;
   const nowDate = new Date();
   const nowDay = day => {
-    const weekTemp = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday", "Saturday"];
+    const weekTemp = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return weekTemp[day];
   };
   return (
@@ -30,6 +30,9 @@ const Weather = ({ name, current, current: { weather, temp } }) => {
             {nowDay(nowDate.getDay())}
           </Text>
           <Text style={styles.today}>TODAY</Text>
+        </View>
+        <View style={styles.dailyContainer}>
+          {daily.slice(1, 8).map(daily => <DailyWeather key={daily.dt} {...daily} />)}
         </View>
         <Meta {...current} />
       </ScrollView>
@@ -71,6 +74,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     paddingVertical: 7,
     alignItems: "flex-end"
+  },
+  dailyContainer: {
+    borderBottomColor: "rgba(255, 255, 255, 0.15)",
+    borderStyle: "solid",
+    borderBottomWidth: 1,
+    paddingVertical: 7
   },
   day: {
     color: "#fff",
