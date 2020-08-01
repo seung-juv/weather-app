@@ -1,2 +1,2 @@
-# Fokin Weather
-Learning React Native by Building a Foking Weather App
+# Weather App
+Learning React Native by Building a Apple Wather App
