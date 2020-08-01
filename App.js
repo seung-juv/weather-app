@@ -34,5 +34,7 @@ export default () => {
     getWeather();
   }, []);
 
+  console.log(weather);
+
   return isLoading ? <Loader /> : <Weather {...weather} />;
 };
