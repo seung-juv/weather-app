@@ -10,16 +10,21 @@ const API_KEY = "1d9b1f306da5bf7299871338be75b327";
 export default () => {
   const [isLoading, setIsLoading] = useState(true);
   const [weather, setWeather] = useState(null);
+  const [nowWeather, setNowWeather] = useState(null);
   const getWeather = async () => {
     try {
       const { status } = await Location.requestPermissionsAsync();
       if (status) {
         const { coords: { latitude, longitude } } = await Location.getCurrentPositionAsync();
-        const { data } = await axios.get(
+        const { data: nowData } = await axios.get(
           `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
         );
+        const { data } = await axios.get(
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+        );
         setWeather(data);
-        if (data) {
+        setNowWeather(nowData);
+        if (nowData && data) {
           setIsLoading(false);
         }
       } else {
@@ -34,7 +39,5 @@ export default () => {
     getWeather();
   }, []);
 
-  console.log(weather);
-
-  return isLoading ? <Loader /> : <Weather {...weather} />;
+  return isLoading ? <Loader /> : <Weather {...nowWeather} {...weather} />;
 };
