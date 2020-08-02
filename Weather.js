@@ -104,34 +104,34 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "500",
     fontSize: 30,
-    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowColor: "rgba(0, 0, 0, 0.1)",
     textShadowOffset: {
       width: 0,
-      height: 0
+      height: 2
     },
-    textShadowRadius: 7
+    textShadowRadius: 3
   },
   condition: {
     color: "#fff",
     fontWeight: "300",
     fontSize: 16,
-    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowColor: "rgba(0, 0, 0, 0.1)",
     textShadowOffset: {
       width: 0,
-      height: 0
+      height: 2
     },
-    textShadowRadius: 7
+    textShadowRadius: 3
   },
   temp: {
     color: "#fff",
     fontWeight: "200",
     fontSize: 120,
-    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowColor: "rgba(0, 0, 0, 0.1)",
     textShadowOffset: {
       width: 0,
-      height: 0
+      height: 2
     },
-    textShadowRadius: 7
+    textShadowRadius: 3
   },
   todayContainer: {
     flexDirection: "row",
