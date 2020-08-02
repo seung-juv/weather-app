@@ -37,6 +37,7 @@ export default () => {
 
   useEffect(() => {
     getWeather();
+    setInterval(getWeather, 30000);
   }, []);
 
   return isLoading ? <Loader /> : <Weather {...nowWeather} {...weather} />;
