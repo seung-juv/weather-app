@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "fokin-weather",
-    "slug": "fokin-weather",
+    "name": "weather-app",
+    "slug": "weather-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,11 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.kingsky32.fokin-weather"
     },
     "web": {
       "favicon": "./assets/favicon.png"

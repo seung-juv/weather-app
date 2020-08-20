@@ -32,7 +32,9 @@ const Weather = ({ name, current, current: { weather, temp }, hourly, daily }) =
                 ? require(`./assets/weather/dust.mp4`)
                 : condition == "Ash" || condition == "Squall" || condition == "Tornado"
                   ? require(`./assets/weather/cloudy.mp4`)
-                  : condition == "Clear" && require(`./assets/weather/sunny.mp4`)
+                  : condition == "Clear"
+                    ? require(`./assets/weather/sunny.mp4`)
+                    : require(`./assets/weather/sunny.mp4`)
         }
         style={styles.backgroundVideo}
         shouldPlay

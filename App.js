@@ -22,6 +22,7 @@ export default () => {
         const { data } = await axios.get(
           `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
         );
+
         setWeather(data);
         setNowWeather(nowData);
         if (nowData && data) {
